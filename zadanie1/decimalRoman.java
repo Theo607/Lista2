@@ -102,7 +102,8 @@ public class decimalRoman {
         if (input.contains("IL") || input.contains("IC") || input.contains("ID") || input.contains("IM") ||
             input.contains("VX") || input.contains("VL") || input.contains("VC") || input.contains("VD") || input.contains("VM") ||
             input.contains("XD") || input.contains("XM") || input.contains("LC") || input.contains("LD") || input.contains("LM") ||
-            input.contains("DM") || input.contains("IXI") || input.contains("IVI")) {
+            input.contains("DM") || input.contains("IXI") || input.contains("IVI") || input.contains("IXL") || input.contains("IXC") ||
+            input.contains("XCL") || input.contains("XCD") || input.contains("XCM") || input.contains("LCD") || input.contains("LCM")) {
             return false;
         }
         
