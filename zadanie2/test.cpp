@@ -13,23 +13,23 @@ int main(int argc, char* argv[]) {
 
             try {
                 int decimal = std::stoi(input);
-                std::string roman = DecimalRoman::decimalToRoman(decimal);
+                std::string roman = decimalToRomanConversion(decimal);
                 std::cout << "Decimal: " << decimal << " -> Roman numeral: " << roman << std::endl;
             } catch (const std::invalid_argument&) {
-                int decimal = DecimalRoman::romanToDecimal(input);
-                std::cout << "Roman numeral: " << input << " -> Decimal: " << decimal << std::endl;
+                try {
+                    int decimal = romanToDecimalConversion(input);
+                    std::cout << "Roman numeral: " << input << " -> Decimal: " << decimal << std::endl;
+                } catch (const DecimalRomanException& e) {
+                    std::cout << e.what() << std::endl;
+                }
+            } catch (const std::out_of_range&) {
+                std::cout << "Out of range decimal number: " << input << std::endl;
             }
-        }
+        }    
 
-        std::cout << "Press any key to exit";
-        std::cin.ignore();  
-        std::cin.get(); 
-
-    } catch (const DecimalRomanException& e) {
-        std::cout << e.what() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "An unexpected error occurred: " << e.what() << std::endl;
     }
-    
+
     return 0;
 }
