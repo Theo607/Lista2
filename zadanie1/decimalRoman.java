@@ -102,8 +102,7 @@ public class decimalRoman {
         if (input.contains("IL") || input.contains("IC") || input.contains("ID") || input.contains("IM") ||
             input.contains("VX") || input.contains("VL") || input.contains("VC") || input.contains("VD") || input.contains("VM") ||
             input.contains("XD") || input.contains("XM") || input.contains("LC") || input.contains("LD") || input.contains("LM") ||
-            input.contains("DM") || input.contains("IXI") || input.contains("IVI") || input.contains("IXL") || input.contains("IXC") ||
-            input.contains("XCL") || input.contains("XCD") || input.contains("XCM") || input.contains("LCD") || input.contains("LCM")) {
+            input.contains("DM") || input.contains("IXI") || input.contains("IVI") || input.contains("I")) {
             return false;
         }
         
@@ -111,21 +110,25 @@ public class decimalRoman {
     }
 
     public static void main(String[] args) {
-        
-            for (String arg : args) {
+        for (String arg : args) {
+            try {
                 try {
                     int decimal = Integer.parseInt(arg);
                     String roman = decimalToRomanConversion(decimal);
                     System.out.println("Decimal: " + decimal + " -> Roman number: " + roman);
                 } catch (NumberFormatException e) {
-                    int decimal = romanToDecimalConversion(arg);
-                    System.out.println("Roman number: " + arg + " -> Decimal: " + decimal);
-                }  catch (decimalRomanException e) {
-                    System.out.println(e.getMessage());
-                } catch (Exception e) {
-                    System.out.println("An unexpected error occurred: " + e.getMessage());
+                    try {
+                        int decimal = romanToDecimalConversion(arg);
+                        System.out.println("Roman number: " + arg + " -> Decimal: " + decimal);
+                    } catch (decimalRomanException ex) {
+                        System.out.println("Error: " + ex.getMessage());
+                    }
+                } catch (decimalRomanException e) {
+                    System.out.println("Error: " + e.getMessage());
                 }
+            } catch (Exception e) {
+                System.out.println("Unexpected error occurred with input '" + arg + "': " + e.getMessage());
             }
-
+        }
     }
 }
