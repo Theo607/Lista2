@@ -119,11 +119,11 @@ public class decimalRoman {
                 } catch (NumberFormatException e) {
                     int decimal = romanToDecimalConversion(arg);
                     System.out.println("Roman number: " + arg + " -> Decimal: " + decimal);
+                }  catch (decimalRomanException e) {
+                    System.out.println(e.getMessage());
                 }
             }
-        } catch (decimalRomanException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
+        }  catch (Exception e) {
             System.out.println("An unexpected error occurred: " + e.getMessage());
         }
     }
