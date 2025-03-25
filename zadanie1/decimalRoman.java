@@ -111,7 +111,7 @@ public class decimalRoman {
     }
 
     public static void main(String[] args) {
-        try {
+        
             for (String arg : args) {
                 try {
                     int decimal = Integer.parseInt(arg);
@@ -126,8 +126,6 @@ public class decimalRoman {
                     System.out.println("An unexpected error occurred: " + e.getMessage());
                 }
             }
-        } catch (Exception e) {
-            System.out.println("An unexpected error occurred: " + e.getMessage());
-        }
+
     }
 }
